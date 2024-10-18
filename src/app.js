@@ -15,7 +15,7 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, './Public')));
 
 app.use(cors(
-    {orgin:process.env.CORS_ORGIN,
+    {origin:process.env.CORS_ORGIN,
     Credential:true,
     
     }
