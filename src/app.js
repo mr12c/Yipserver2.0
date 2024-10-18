@@ -15,7 +15,7 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, './Public')));
 
 app.use(cors({
-    origin:"https://yip2024.netlify.app/" , // Ensure correct spelling
+    origin:"https://yip2024.netlify.app" , // Ensure correct spelling
     credentials: true, // Ensure correct spelling and enable credentials (cookies, etc.)
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
     allowedHeaders: ['Content-Type', 'Authorization', 'AuthorizationRef'] // Specify allowed headers
