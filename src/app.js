@@ -14,12 +14,12 @@ const __dirname = path.dirname(__filename);
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, './Public')));
 
-app.use(cors(
-    {origin:process.env.CORS_ORGIN,
-    Credential:true,
-    
-    }
-))  /// this will allow to send requests to all 
+app.use(cors({
+    origin:"https://yip2024.netlify.app/" , // Ensure correct spelling
+    credentials: true, // Ensure correct spelling and enable credentials (cookies, etc.)
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
+    allowedHeaders: ['Content-Type', 'Authorization', 'AuthorizationRef'] // Specify allowed headers
+}));  /// this will allow to send requests to all 
 // required middelwares
 app.use(cookieParser())
 app.use(express.json({limit:"16kb"}))//// for getting the form data 
