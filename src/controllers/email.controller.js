@@ -62,7 +62,7 @@ const sendEmail = (req, res) => {
 
     let message = {
         from : process.env.EMAIL,
-        to : "vikukm4@gmail.com",
+        to : "barc@iitkgp.ac.in",
         subject: "New Query",
         html: mail
     }
