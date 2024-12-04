@@ -7,8 +7,8 @@ dotenv.config()
  
 const sendEmail = (req, res) => {
 
-    const {senderName,senderEmail,query } = req.body;
-    if(!senderName || !senderEmail || !query){
+    const {senderName,senderEmail,query,phoneNo } = req.body;
+    if(!senderName || !senderEmail || !query || !phoneNo){
       throw new ApiError(400,"All fields are required");
     }
     
@@ -47,13 +47,17 @@ const sendEmail = (req, res) => {
                       item: "Sender Email",
                       description: `${senderEmail}`, // Example sender email
                   },
+                {
+                    item:"Sender Name",
+                    description:`${phoneNo}`, // Example phone number
+                },
                   {
                       item: "Query",
                       description:`${query}`, // Example query
                   }
               ]
           },
-          outro: "We will get back to you as soon as possible." 
+          outro: "Thank You!!" 
       }
   };
   
@@ -62,7 +66,7 @@ const sendEmail = (req, res) => {
 
     let message = {
         from : process.env.EMAIL,
-        to : "barc@iitkgp.ac.in",
+        to : "iitkgpbarc@gmail.com",
         subject: "New Query",
         html: mail
     }
