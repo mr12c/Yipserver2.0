@@ -11,6 +11,18 @@ const teamSchema = new mongoose.Schema({
         type:String,
         required:true
         
+    },
+    mentorName:{
+        type:String,
+        required:true
+    },
+    mentorPhoneNo:{
+        type:String,
+        required:true
+    },
+    mentorEmail:{
+        type:String,
+        required:true
     }
 },{timestamps:true})
 

@@ -15,15 +15,16 @@ import Team from "../models/team.model.js";
 
  
 const createTeam = asyncHandler(async(req, res) => {
-     const {team_name , password} = req.body;
-     if(!team_name   || !password ){
+     const {team_name , password,mentorName,mentorPhoneNo,mentorEmail} = req.body;
+     if(!team_name   || !password || !mentorName || !mentorPhoneNo || !mentorEmail
+     ){
          throw new ApiError(400,"All fields are required");
      }
      const teamExists = await Team.findOne({ 'name': team_name });
      if (teamExists) {
          throw new ApiError(409, "Team name already exists! Please choose a different name");
      }
-     const team = await Team.create({name: team_name, password});
+     const team = await Team.create({name: team_name, password,mentorName,mentorPhoneNo,mentorEmail});
      if(!team){
         throw new ApiError(404,"error while creating team");
      }
