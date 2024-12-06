@@ -7,8 +7,8 @@ dotenv.config()
  
 const sendEmail = (req, res) => {
 
-    const {senderName,senderEmail,query,phoneNo } = req.body;
-    if(!senderName || !senderEmail || !query || !phoneNo){
+    const {senderName,senderEmail,query} = req.body;
+    if(!senderName || !senderEmail || !query){
       throw new ApiError(400,"All fields are required");
     }
     
@@ -47,10 +47,7 @@ const sendEmail = (req, res) => {
                       item: "Sender Email",
                       description: `${senderEmail}`, // Example sender email
                   },
-                {
-                    item:"Sender Name",
-                    description:`${phoneNo}`, // Example phone number
-                },
+                 
                   {
                       item: "Query",
                       description:`${query}`, // Example query
