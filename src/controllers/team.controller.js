@@ -15,10 +15,10 @@ import Team from "../models/team.model.js";
 
  
 const createTeam = asyncHandler(async(req, res) => {
-     const {team_name , password} = req.body;
-     let mentorName ="na";
-    let mentorPhoneNo ="na";
-    let mentorEmail ="na";
+     let {team_name , password, mentorName,mentorPhoneNo,mentorEmail} = req.body;
+      mentorName = mentorName || "na";
+      mentorPhoneNo = mentorPhoneNo || "na";
+      mentorEmail = mentorEmail || "na";
      if(!team_name   || !password || !mentorName || !mentorPhoneNo || !mentorEmail
      ){
          throw new ApiError(400,"All fields are required");
